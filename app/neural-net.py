@@ -265,6 +265,7 @@ with torch.no_grad():
     plt.axis('off')
     plt.title('Correct')
     print('Correct prefiction:',cor[i],'Prediction is: ',pred[cor[i]],'True label is: ',target[cor[i]])
+    plt.savefig('correct.png')
 
   plt.figure()
   for i in range(len(incor)):
@@ -277,3 +278,4 @@ with torch.no_grad():
     plt.axis('off')
     plt.title('Incorrect')
     print('Incorrect prefiction:',incor[i],'Prediction is: ',pred[incor[i]],'True label is: ',target[incor[i]])
+    plt.savefig('incorrect.png')
