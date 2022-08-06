@@ -45,15 +45,6 @@ unnormalize = transforms.Normalize(
    std=[1/0.229, 1/0.224, 1/0.225]
 )
 
-train_transforms = transforms.Compose([
-                                    transforms.Resize((256, 256)),
-                                    transforms.RandomHorizontalFlip(),
-                                    transforms.ColorJitter(hue=.1, saturation=.1, contrast=.1),
-                                    transforms.RandomRotation(20, resample=Image.BILINEAR),
-                                    transforms.GaussianBlur(7, sigma=(0.1, 1.0)),
-                                    transforms.ToTensor(),  # convert PIL to Pytorch Tensor
-                                    normalize,
-                                ])
 
 validation_transforms = transforms.Compose([
                                     transforms.Resize((256, 256)),
