@@ -239,33 +239,49 @@ with torch.no_grad():
   accuracy = 100. * correct / len(test_loader.dataset)
   print('\nTest set: Accuracy: {}/{} ({:.0f}%)\n'.format(correct, len(test_loader.dataset),
           accuracy))
-  cor = (pred==target).int().nonzero().view(correct).tolist()[0:4]
-  incor = (pred!=target).int().nonzero().view(10-correct).tolist()[0:4]
+  cor = (pred==target).int().nonzero().view(correct).tolist()#[0:4]
+  incor = (pred!=target).int().nonzero().view(10-correct).tolist()#[0:4]
+
+  d = {0: 'cat',1: 'dog'}
 
   plt.figure()
   for i in range(len(cor)):
     c_data, _ = test_loader.dataset.__getitem__(cor[i])
     c_data = unnormalize(c_data)
-    plt.subplot(2,2,i+1)
+    #plt.subplot(2,2,i+1)
     img = c_data.view(3,256,256).cpu().swapaxes(0,1)
     img = img.swapaxes(1,2)
     plt.imshow(img)
     plt.axis('off')
     plt.title('Correct')
-    print('Correct prefiction:',cor[i],'Prediction is: ',pred[cor[i]],'True label is: ',target[cor[i]])
-    plt.savefig('correct.png')
+    print('Correct prefiction:',cor[i],'Prediction is: ', d[pred[cor[i]].item()],'True label is: ',d[target[cor[i]].item()])
+    #plt.savefig('correct.png')
 
   plt.figure()
   for i in range(len(incor)):
     inc_data, _ = test_loader.dataset.__getitem__(incor[i])
     inc_data = unnormalize(inc_data)
-    plt.subplot(2,2,i+1)
+    #plt.subplot(2,2,i+1)
     img = inc_data.view(3,256,256).cpu().swapaxes(0,1)
     img = img.swapaxes(1,2)
     plt.imshow(img)
     plt.axis('off')
     plt.title('Incorrect')
-    print('Incorrect prefiction:',incor[i],'Prediction is: ',pred[incor[i]],'True label is: ',target[incor[i]])
-    plt.savefig('incorrect.png')
+    print('Incorrect prefiction:',incor[i],'Prediction is: ',d[pred[incor[i]].item()],'True label is: ',d[target[incor[i]].item()])
+    #plt.savefig('incorrect.png')
 
-  d = {0: 'cat',1: 'dog'}
+
+  fig, ax = plt.subplots(1, 10, figsize=(16, 8))
+  for i in range(0,len(cor),1):
+    img, _ = test_loader.dataset.__getitem__(cor[i])
+    ax[i].imshow(unnormalize(img).detach().cpu().permute(1, 2, 0))
+    ax[i].set_xlabel(d[pred[cor[i]].item()])
+    ax[i].set_yticklabels([])
+    ax[i].set_xticklabels([])
+  for i in range(0,len(incor),1):
+    img, _ = test_loader.dataset.__getitem__(incor[i])
+    ax[len(cor)+i].imshow(unnormalize(img).detach().cpu().permute(1, 2, 0))
+    ax[len(cor)+i].set_xlabel(d[pred[incor[i]].item()])
+    ax[len(cor)+i].set_yticklabels([])
+    ax[len(cor)+i].set_xticklabels([])
+  plt.savefig('result.png')
