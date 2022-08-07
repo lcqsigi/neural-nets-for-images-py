@@ -20,11 +20,8 @@ os.system('mkdir cats_and_dogs_filtered/validation/cats')
 
 os.system('mkdir cats_and_dogs_filtered/validation/dogs')
 
-os.system('cp ../dog.tar cats_and_dogs_filtered/validation/dogs/')
-os.system('cp ../cat.tar cats_and_dogs_filtered/validation/cats/')
-
-os.system('tar -xvf cats_and_dogs_filtered/validation/dogs/dog.tar')
-os.system('tar -xvf cats_and_dogs_filtered/validation/cats/cat.tar')
+os.system('cp ../file.tar .')
+os.system('tar -xvf file.tar')
 
 os.system('mv cat*.jpg cats_and_dogs_filtered/validation/cats/')
 os.system('mv dog*.jpg cats_and_dogs_filtered/validation/dogs/')
@@ -270,3 +267,5 @@ with torch.no_grad():
     plt.title('Incorrect')
     print('Incorrect prefiction:',incor[i],'Prediction is: ',pred[incor[i]],'True label is: ',target[incor[i]])
     plt.savefig('incorrect.png')
+
+  d = {0: 'cat',1: 'dog'}
