@@ -271,7 +271,7 @@ with torch.no_grad():
     #plt.savefig('incorrect.png')
 
 
-  fig, ax = plt.subplots(1, 10, figsize=(16, 8))
+  fig, ax = plt.subplots(1, 10, figsize=(20, 10))
   for i in range(0,len(cor),1):
     img, _ = test_loader.dataset.__getitem__(cor[i])
     ax[i].imshow(unnormalize(img).detach().cpu().permute(1, 2, 0))
