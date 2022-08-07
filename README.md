@@ -44,3 +44,15 @@ cats and dogs contained in a file named: `file.tar`
 `dog.2457.jpg`  
 `dog.2458.jpg`  
 `dog.2459.jpg`  
+
+`NOTE:`
+    + The model `frcnn0906.pth` was created separately with the use of a `GPU`
+      infrastructure and it has an accuracy of 90% on the `validation` set
+    + High-resolution images could not be tested on the `Heroku Platform`
+      because the execution of the APP  may pass the allowed runtime.
+    + The format of the `file.tar` is set to receive 20 images in total
+      splitted evenly for dogs and cats (see above).
+    + The `file.tar` can be created using Unix syntax (e.g., `tar -cf file.tar`
+      dog*.jpg cat*.jpg`). This file can be either be uploaded if using the web
+      app or saved in the `main` path of this repository:
+      `git@github.com:lcqsigi/neural-nets-for-images-py.git`
