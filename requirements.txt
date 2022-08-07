@@ -3,3 +3,7 @@ torchvision
 tqdm
 ipywidgets
 matplotlib
+flask
+requests
+werkzeug
+numpy
