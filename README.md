@@ -1,4 +1,4 @@
-# neural-nets-for-images-py# shopping-cart
+# neural-nets-for-images-py
 
 # Setup the enviroment and install needed dependencies
 
