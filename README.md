@@ -1,5 +1,11 @@
 # neural-nets-for-images-py
 
+The idea behind this development is that of using a previously trained
+`pytorch` model (e.g., `frcnn0906.pth`) to classify user provided images of
+cats and dogs contained in a file named: `file.tar`
+
+This code could also be accessed from a web browser: `https://rsc468-neural.herokuapp.com/` 
+
 # Setup the enviroment and install dependencies
 
 `conda create -n neural-env python=3.9`  
@@ -15,12 +21,6 @@ cd app
  python neural_net.py
 cd ..
 ```
-
-This code could also be accessed from a web browser: `https://rsc468-neural.herokuapp.com/` 
-
-The idea behind this development is that of using a previously trained
-`pytorch` model (e.g., `frcnn0906.pth`) to classify user provided images of
-cats and dogs contained in a file named: `file.tar`
 
 # Contents of the file.tar
 
@@ -51,6 +51,6 @@ The model `frcnn0906.pth` was created separately with the use of a `GPU` infrast
 
 High-resolution images could not be tested on the `Heroku Platform` because the execution of the `rsc468-neural APP` may pass the allowed runtime
 
-The format of the file `file.tar` is set to contain 20 images in total splitted evenly for images of dogs and cats (see above)
+The format of the file `file.tar` is set to contain 20 images in total splitted evenly for images of cats and dogs (see above)
 
-The file `file.tar` can be created using Unix syntax (e.g., `tar -cf file.tar dog*.jpg cat*.jpg`). This file can be either be uploaded if using the web APP or be saved in the `main` path of this repository: `git@github.com:lcqsigi/neural-nets-for-images-py.git`
+The file `file.tar` can be created using Unix syntax (e.g., `tar -cf file.tar cat*.jpg dog*.jpg`). This file can be either be uploaded if using the web APP or be saved in the `main` path of this repository: `git@github.com:lcqsigi/neural-nets-for-images-py.git`
