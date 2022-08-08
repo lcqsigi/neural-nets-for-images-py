@@ -4,7 +4,7 @@ The idea behind this development is that of using a previously trained
 `pytorch` model (e.g., `frcnn0906.pth`) to classify user provided images of
 cats and dogs contained in a file named: `file.tar`
 
-This code could also be accessed from a web browser: `https://rsc468-neural.herokuapp.com/` 
+This code can also be accessed following this [link](https://rsc468-neural.herokuapp.com/)
 
 # Setup the enviroment and install dependencies
 
