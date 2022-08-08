@@ -1,6 +1,6 @@
 # neural-nets-for-images-py
 
-# Setup the enviroment and install needed dependencies
+# Setup the enviroment and install dependencies
 
 `conda create -n neural-env python=3.9`  
 `conda activate neural-env`  
